@@ -7,7 +7,9 @@ import pyinputplus as ppl
 import requests
 import sys
 
-# only thing to edit is at the very end
+goodreads_id = "https://www.goodreads.com/review/list/31212342-amogh-p?shelf=currently-reading"  # replace the link to your goodreads currently readying shelf
+                                                                                                 # that is set to public, or use mine to see what i am reading :)
+sheetid = '1QTF4JokD_d6gbL4ky9tiiodmimbT6lC-BB0goDVkq3o'  # change to sheet id of your choice
 
 os.chdir(os.path.dirname(__file__))  # make sure your dir has the credentials-sheets.json, token-drive.pickle, token-sheets.pickle files
 
@@ -91,7 +93,6 @@ def update_sheet(books, sheet_id):
         clear()
 
 
-books = fetch_isbn("https://www.goodreads.com/review/list/31212342-amogh-p?shelf=currently-reading")  # replace the link to your goodreads currently readying shelf
-# that is set to public, or use mine to see what i am reading :)
+books = fetch_isbn(goodreads_id)
 
-update_sheet(books, '1QTF4JokD_d6gbL4ky9tiiodmimbT6lC-BB0goDVkq3o')  # replace the second argument with the sheet ID of your choice, where you want to save your Data
+update_sheet(books, sheetid)
